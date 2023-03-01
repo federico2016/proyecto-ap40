@@ -26,62 +26,9 @@ function mostrarOcultar(elementId){
   }
 }
 
-$.ajax({
-  url: 'https://randomuser.me/api/?nat=BR,ES,MX',
-  dataType: 'json',
-  success: function(data) {
-	var newdata= JSON.stringify(data);
-	var persona= JSON.parse(newdata);
-    //alert(persona.results);
-	console.log(persona.results[0]);
-	var picture = persona.results[0].picture.large;
-	var nombrecomp = persona.results[0].name.first+' '+persona.results[0].name.last;
-
-	var fecha = persona.results[0].dob.date;
-	console.log(fecha);
-	fechanac = fecha.slice(8,10)+'-'+fecha.slice(5,7)+'-'+fecha.slice(0,4);
-	console.log(fecha);
-	
-	
-
-
-	//var fechanac = fecha.getDate()+'-'+fecha.getMonth()+'-'+fecha.getYear();
-
-	var lugaryfecha = persona.results[0].location.city+', '+fechanac;
-	var edad = persona.results[0].dob.age;
-	
-	var codpostciud = persona.results[0].location.postcode+', '+persona.results[0].location.state +'-'+persona.results[0].location.country;
-
-
-	var telcont = persona.results[0].phone;	
-	var telmov = persona.results[0].cell;	
-	var email = persona.results[0].email;
-	var emailatag = 'mailto:' + persona.results[0].email;
-	 
-
-document.getElementById('pic').src = persona.results[0].picture.large;
-document.getElementById('nomyap').textContent = nombrecomp;
-document.getElementById('nomyap2').textContent = nombrecomp;
-
-document.getElementById('lugaryfecha').textContent = lugaryfecha;
-document.getElementById('edad').textContent = edad;
-document.getElementById('codpostciud').textContent = codpostciud;
-
-document.getElementById('telcont').textContent = telcont;
-document.getElementById('telmov').textContent = telmov;
-
-document.getElementById('email').textContent = email;
-document.getElementById('emailatag').href = emailatag;
-
-
-
-  }
-});
-
-
 </script>
 </head>
-<body onLoad="initialSet();">
+<body onLoad="initialSet('random');">
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid"> <a class="navbar-brand" href="index.html">Contenido</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"> </button>
@@ -269,7 +216,7 @@ document.getElementById('emailatag').href = emailatag;
     <hr class="solid">
     <section>
       <h2 onClick="mostrarOcultar('informatica');"><i class="fa-solid fa-eye"></i> Conocimientos informáticos [click para mostrar u ocultar]</h2>
-      <div id="informatica"> Manejo de aplicaciones ofimáticas.<br>
+      <div style="display:none"; id="informatica"> Manejo de aplicaciones ofimáticas.<br>
         Nivel: alto.
         <ul>
           <li>Procesadores de textos.</li>
@@ -281,7 +228,7 @@ document.getElementById('emailatag').href = emailatag;
     </section>
     <hr class="solid">
     <section>
-      <h2>Conocimientos de idiomas</h2>
+      <h2><i class="fa-solid fa-pencil"></i> Conocimientos de idiomas</h2>
       Idioma: inglés.<br>
       Nivel: intermedio con certificación.</section>
     <hr class="solid">
@@ -352,7 +299,7 @@ document.getElementById('emailatag').href = emailatag;
       <div class="row">
         <div class="col-lg-3 col-md-2 col-sm-1 themed-grid-col"></div>
         <div class="col-lg-6 col-md-8 col-sm-10 themed-grid-col border rounded-3 bg-warning" id="formBg">
-          <h2><i class="fa-solid fa-send-backward"></i> Contacto</h2>
+          <h2><i class="fa-solid fa-user"></i> Contacto</h2>
           <p>Si mi perfil se ajusta a su búsqueda de personal, por favor, no dude en contactarme.</p>
           <form action="#" method="post" name="contactForm">
             <div class="form-group">
