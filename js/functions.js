@@ -20,8 +20,8 @@ function readColorScheme(){
 function setColorScheme(scheme){
 	localStorage.setItem("colorMode", scheme);
 	document.body.className=scheme;
-	document.getElementById("colorMode").textContent='Activar Modo '+ (scheme=='dark' ? 'Día' : 'Noche');
-	document.getElementById("colorMode").className='btn btn-'+ (scheme=='dark' ? 'secondary' : 'warning');
+	document.getElementById("colorMode").textContent='Modo '+ (scheme=='dark' ? 'Diurno' : 'Nocturno');
+	document.getElementById("colorMode").className='btn btn-warning ' + (scheme=='dark' ? 'light' : 'dark');
 	document.getElementById("formBg").classList.remove('bg-'+ (scheme=='dark' ? 'warning' : 'dark'));
 	document.getElementById("formBg").classList.add('bg-'+ (scheme=='dark' ? 'dark' : 'warning'));
 			
